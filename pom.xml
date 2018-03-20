@@ -85,5 +85,97 @@
                 </plugins>
             </build>
         </profile>
+        
+        <profile>
+            <id>liberty</id>
+            
+            <properties>
+                <assembly.file.postfix>liberty</assembly.file.postfix>
+                <app.name>cloudee-duke</app.name>
+                <testServerHttpPort>9080</testServerHttpPort>
+                <testServerHttpsPort>9443</testServerHttpsPort>
+                <warContext>${app.name}</warContext>
+                <package.file>${project.build.directory}/${app.name}.jar</package.file>
+                <packaging.type>runnable</packaging.type>
+            </properties>
+            
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>3.2.0</version>
+                        <configuration>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+                            <packagingExcludes>pom.xml</packagingExcludes>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>3.0.2</version>
+                        <executions>
+                            <execution>
+                                <id>copy-app</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/liberty/wlp/usr/servers/defaultServer/dropins</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.build.directory}</directory>
+                                            <includes>
+                                                <include>${project.build.finalName}.war</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>net.wasdev.wlp.maven.plugins</groupId>
+                        <artifactId>liberty-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <install>
+                                <type>webProfile7</type>
+                                <version>2018.+</version>
+                            </install>
+                            <configFile>${basedir}/src/main/liberty/config/server.xml</configFile>
+                            <serverEnv>${basedir}/src/main/liberty/config/server.env</serverEnv>
+                            <jvmOptionsFile>${basedir}/src/main/liberty/config/jvm.options</jvmOptionsFile>
+                            <packageFile>${package.file}</packageFile>
+                            <include>${packaging.type}</include>
+                            <bootstrapProperties>
+<!--                                <default.http.port>${env.PORT}</default.http.port>
+                                <default.https.port>${testServerHttpsPort}</default.https.port>-->
+                            </bootstrapProperties>
+                        </configuration>     
+                        <executions>
+                            <execution>
+                                <id>install-liberty</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>install-server</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>package-app</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>package-server</goal>
+                                </goals>
+                            </execution>
+                        </executions>               
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        
     </profiles>
 </project>

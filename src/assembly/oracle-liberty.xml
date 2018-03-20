@@ -2,19 +2,19 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
    
-    <id>oracle-swarm</id>
+    <id>oracle-liberty</id>
     <formats>
         <format>zip</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
     <files>
         <file>
-            <source>${basedir}/src/main/oracle/manifest-swarm.json</source>
-            <destName>mainfest.json</destName>
+            <source>${basedir}/src/main/oracle/manifest-liberty.json</source>
+            <destName>manifest.json</destName>
             <outputDirectory>/</outputDirectory>
         </file>
         <file>
-            <source>${basedir}/target/${project.build.finalName}-swarm.jar</source>
+            <source>${basedir}/target/${project.build.finalName}.jar</source>
             <outputDirectory>/</outputDirectory>
         </file>
     </files>
