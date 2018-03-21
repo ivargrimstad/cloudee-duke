@@ -1,0 +1,12 @@
+{
+    "runtime": {
+        "majorVersion": "8"
+    },
+    "command": "java -Dkumuluzee.server.http.port=$PORT -jar cloudee-duke.jar --port",
+    "release": {
+        "version": "1.0",
+        "build": "1",
+        "commit": "123"
+    },
+    "notes": "Dukes says hello from Kumuluz EE"
+}
