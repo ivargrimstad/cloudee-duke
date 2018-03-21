@@ -10,7 +10,7 @@
     <files>
         <file>
             <source>${basedir}/src/main/oracle/manifest-payara.json</source>
-            <destName>mainfest.json</destName>
+            <destName>manifest.json</destName>
             <outputDirectory>/</outputDirectory>
         </file>
         <file>

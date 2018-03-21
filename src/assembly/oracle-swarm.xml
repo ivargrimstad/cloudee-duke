@@ -10,7 +10,7 @@
     <files>
         <file>
             <source>${basedir}/src/main/oracle/manifest-swarm.json</source>
-            <destName>mainfest.json</destName>
+            <destName>manifest.json</destName>
             <outputDirectory>/</outputDirectory>
         </file>
         <file>
