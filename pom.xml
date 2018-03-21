@@ -19,6 +19,15 @@
         <finalName>cloudee-duke</finalName>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <packagingExcludes>pom.xml</packagingExcludes>
+                </configuration>
+            </plugin>
+            <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
@@ -103,16 +112,6 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>3.2.0</version>
-                        <configuration>
-                            <failOnMissingWebXml>false</failOnMissingWebXml>
-                            <packagingExcludes>pom.xml</packagingExcludes>
-                        </configuration>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-resources-plugin</artifactId>
                         <version>3.0.2</version>
                         <executions>
@@ -151,10 +150,6 @@
                             <jvmOptionsFile>${basedir}/src/main/liberty/config/jvm.options</jvmOptionsFile>
                             <packageFile>${package.file}</packageFile>
                             <include>${packaging.type}</include>
-                            <bootstrapProperties>
-<!--                                <default.http.port>${env.PORT}</default.http.port>
-                                <default.https.port>${testServerHttpsPort}</default.https.port>-->
-                            </bootstrapProperties>
                         </configuration>     
                         <executions>
                             <execution>
@@ -176,6 +171,37 @@
                 </plugins>
             </build>
         </profile>
+
+        <profile>
+            <id>payara</id>
+            
+            <properties>
+                <version.payara.micro>5.181</version.payara.micro>
+                <assembly.file.postfix>payara</assembly.file.postfix>
+            </properties>
+            
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>fish.payara.maven.plugins</groupId>
+                        <artifactId>payara-micro-maven-plugin</artifactId>
+                        <version>1.0.1-SNAPSHOT</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>bundle</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <payaraVersion>${version.payara.micro}</payaraVersion>
+                            <autoDeployContextRoot>cloudee-duke</autoDeployContextRoot>
+                        </configuration>
+                    </plugin>                
+                </plugins>
+            </build>
+        </profile>
         
     </profiles>
+
 </project>

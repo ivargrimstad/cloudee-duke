@@ -1,0 +1,12 @@
+{
+    "runtime": {
+        "majorVersion": "8"
+    },
+    "command": "java -jar cloudee-duke-microbundle.jar --port $PORT",
+    "release": {
+        "version": "1.0",
+        "build": "1",
+        "commit": "123"
+    },
+    "notes": "Dukes says hello from Payara"
+}
