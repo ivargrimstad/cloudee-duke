@@ -194,7 +194,7 @@
                         </executions>
                         <configuration>
                             <payaraVersion>${version.payara.micro}</payaraVersion>
-                            <autoDeployContextRoot>cloudee-duke</autoDeployContextRoot>
+                            <autoDeployEmptyContextRoot>true</autoDeployEmptyContextRoot>
                         </configuration>
                     </plugin>                
                 </plugins>
