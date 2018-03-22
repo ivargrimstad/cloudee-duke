@@ -2,7 +2,7 @@
     "runtime": {
         "majorVersion": "8"
     },
-    "command": "java -Dkumuluzee.server.http.port=$PORT -jar cloudee-duke.jar --port",
+    "command": "java -Dkumuluzee.server.http.port=$PORT -jar cloudee-duke.jar",
     "release": {
         "version": "1.0",
         "build": "1",
