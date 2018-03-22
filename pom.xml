@@ -146,9 +146,6 @@
                             <jvmOptionsFile>${basedir}/src/main/liberty/config/jvm.options</jvmOptionsFile>
                             <packageFile>${project.build.directory}/${project.build.finalName}.jar</packageFile>
                             <include>runnable</include>
-                            <bootstrapProperties>
-                                <app.context.root>/</app.context.root>
-                            </bootstrapProperties>                        
                         </configuration>     
                         <executions>
                             <execution>
