@@ -100,12 +100,8 @@
             
             <properties>
                 <assembly.file.postfix>liberty</assembly.file.postfix>
-                <app.name>cloudee-duke</app.name>
                 <testServerHttpPort>9080</testServerHttpPort>
                 <testServerHttpsPort>9443</testServerHttpsPort>
-                <warContext>${app.name}</warContext>
-                <package.file>${project.build.directory}/${app.name}.jar</package.file>
-                <packaging.type>runnable</packaging.type>
             </properties>
             
             <build>
@@ -148,8 +144,11 @@
                             <configFile>${basedir}/src/main/liberty/config/server.xml</configFile>
                             <serverEnv>${basedir}/src/main/liberty/config/server.env</serverEnv>
                             <jvmOptionsFile>${basedir}/src/main/liberty/config/jvm.options</jvmOptionsFile>
-                            <packageFile>${package.file}</packageFile>
-                            <include>${packaging.type}</include>
+                            <packageFile>${project.build.directory}/${project.build.finalName}.jar</packageFile>
+                            <include>runnable</include>
+                            <bootstrapProperties>
+                                <app.context.root>/</app.context.root>
+                            </bootstrapProperties>                        
                         </configuration>     
                         <executions>
                             <execution>
