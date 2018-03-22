@@ -1,3 +1,28 @@
 = CloudEE Duke
 
 Simple MicroProfile Application with deployment configurations to a variety of cloud offerings.
+
+== Build WildFly Swarm for Oracle Application Container Cloud
+
+```
+mvn clean package assembly:single -Pswarm
+```
+
+== Build Payara Micro for Oracle Application Container Cloud
+
+```
+mvn clean package payara-micro:bundle assembly:single -Ppayara
+```
+
+== Build Liberty for Oracle Application Container Cloud
+
+```
+mvn clean package assembly:single -Pliberty
+```
+
+== Build Kumuluz EE for Oracle Application Container Cloud
+
+```
+mvn clean package assembly:single -Pkumuluz
+```
+
