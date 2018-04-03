@@ -14,7 +14,11 @@
             <outputDirectory>/</outputDirectory>
         </file>
         <file>
-            <source>${basedir}/target/${project.build.finalName}-swarm.jar</source>
+            <source>${basedir}/target/${project.build.finalName}-hollow-swarm.jar</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+        <file>
+            <source>${basedir}/target/${project.build.finalName}.war</source>
             <outputDirectory>/</outputDirectory>
         </file>
     </files>

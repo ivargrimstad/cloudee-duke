@@ -2,7 +2,7 @@
     "runtime": {
         "majorVersion": "8"
     },
-    "command": "java -Dswarm.http.port=$PORT -Dswarm.bind.address=$HOSTNAME -jar cloudee-duke-swarm.jar",
+    "command": "java -Dswarm.http.port=$PORT -Dswarm.bind.address=$HOSTNAME -jar cloudee-duke-hollow-swarm.jar cloudee-duke.war",
     "release": {
         "version": "1.0",
         "build": "1",
