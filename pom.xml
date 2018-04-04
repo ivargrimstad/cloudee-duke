@@ -103,7 +103,7 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <alias>${project.artifactid}</alias>
+                                    <alias>${project.artifactid}-swarm</alias>
                                     <name>ivargrimstad/${project.artifactId}:swarm</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
@@ -216,6 +216,39 @@
                             </execution>
                         </executions>               
                     </plugin>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${version.docker-maven-plugin}</version>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <alias>${project.artifactid}-liberty</alias>
+                                    <name>ivargrimstad/${project.artifactId}:liberty</name>
+                                    <build>
+                                        <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
+                                        <from>websphere-liberty:beta</from>
+                                        <assembly>
+                                            <basedir>/opt/ibm/wlp/usr/servers</basedir>
+                                            <inline>
+                                                <files>
+                                                    <file>
+                                                        <source>${basedir}/target/${project.build.finalName}.war</source>
+                                                        <outputDirectory>defaultServer/dropins</outputDirectory>
+                                                    </file>
+                                                    <file>
+                                                        <source>${basedir}/src/main/liberty/config/server.xml</source>
+                                                        <outputDirectory>defaultServer</outputDirectory>
+                                                    </file>
+                                                </files>
+                                            </inline>                                   
+                                        </assembly>                                         
+                                        
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -246,6 +279,34 @@
                             <autoDeployEmptyContextRoot>true</autoDeployEmptyContextRoot>
                         </configuration>
                     </plugin>                
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${version.docker-maven-plugin}</version>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <alias>${project.artifactid}-payara</alias>
+                                    <name>ivargrimstad/${project.artifactId}:payara</name>
+                                    <build>
+                                        <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
+                                        <from>payara/micro:174</from>
+                                        <assembly>
+                                            <basedir>/opt/payara/deployments</basedir>
+                                            <descriptorRef>artifact</descriptorRef>
+                                        </assembly>
+                                        <entryPoint>
+                                            <arg>java</arg>
+                                            <arg>-jar</arg>
+                                            <arg>/opt/payara/payara-micro.jar</arg>
+                                            <arg>--deploymentDir</arg>  
+                                            <arg>/opt/payara/deployments</arg>  
+                                        </entryPoint>     
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -292,6 +353,39 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${version.docker-maven-plugin}</version>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <alias>${project.artifactid}-kumuluz</alias>
+                                    <name>ivargrimstad/${project.artifactId}:kumuluz</name>
+                                    <build>
+                                        <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
+                                        <from>store/oracle/serverjre:8</from>
+                                        <assembly>
+                                            <basedir>/opt</basedir>
+                                            <inline>
+                                                <files>
+                                                    <file>
+                                                        <source>${basedir}/target/${project.build.finalName}.jar</source>
+                                                    </file>
+                                                </files>
+                                            </inline>                                   
+                                        </assembly>                                                                             
+                                        <entryPoint>
+                                            <arg>java</arg>
+                                            <arg>-jar</arg>
+                                            <arg>/opt/${project.build.finalName}.jar</arg>  
+                                        </entryPoint>
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
