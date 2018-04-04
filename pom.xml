@@ -92,7 +92,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <hollow>true</hollow> <!-- -->
+                            <hollow>true</hollow>
                         </configuration>
                     </plugin>
             
@@ -104,7 +104,6 @@
                             <images>
                                 <image>
                                     <alias>${project.artifactid}</alias>
-                                    <alias>swarm-micro</alias>
                                     <name>ivargrimstad/${project.artifactId}:swarm</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
@@ -132,11 +131,6 @@
                                             <arg>/opt/${project.build.finalName}.war</arg>  
                                         </entryPoint>
                                     </build>
-                                    <run>
-                                        <ports>
-                                            <port>8093:8080</port>
-                                        </ports>
-                                    </run>
                                 </image>
                             </images>
                         </configuration>
