@@ -55,7 +55,7 @@
             <id>swarm</id>
             
             <properties>
-                <version.wildfly.swarm>2018.3.3</version.wildfly.swarm>
+                <version.wildfly.swarm>2018.4.1</version.wildfly.swarm>
                 <assembly.file.postfix>swarm</assembly.file.postfix>
             </properties>
             
@@ -103,7 +103,7 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <alias>${project.artifactid}-swarm</alias>
+                                    <alias>${project.artifactId}-swarm</alias>
                                     <name>ivargrimstad/${project.artifactId}:swarm</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
@@ -223,7 +223,7 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <alias>${project.artifactid}-liberty</alias>
+                                    <alias>${project.artifactId}-liberty</alias>
                                     <name>ivargrimstad/${project.artifactId}:liberty</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
@@ -286,7 +286,7 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <alias>${project.artifactid}-payara</alias>
+                                    <alias>${project.artifactId}-payara</alias>
                                     <name>ivargrimstad/${project.artifactId}:payara</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
@@ -362,7 +362,7 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <alias>${project.artifactid}-kumuluz</alias>
+                                    <alias>${project.artifactId}-kumuluz</alias>
                                     <name>ivargrimstad/${project.artifactId}:kumuluz</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
