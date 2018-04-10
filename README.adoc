@@ -28,3 +28,9 @@ mvn clean package assembly:single -Pliberty
 ```
 mvn clean package assembly:single -Pkumuluz
 ```
+
+== Build Wildfly Swarm Docker Image
+
+```
+mvn clean package docker:build -Pswarm
+```
