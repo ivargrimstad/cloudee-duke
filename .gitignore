@@ -11,5 +11,6 @@ nb-configuration.xml
 nbactions-swarm.xml
 nbactions.xml
 audit.log
+.idea/
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
