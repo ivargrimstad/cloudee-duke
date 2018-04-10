@@ -14,8 +14,8 @@ import javax.ws.rs.Produces;
 @RequestScoped
 public class HelloWorldEndpoint {
 
-    @ConfigProperty(name = "message", defaultValue = "Hello")
     @Inject
+    @ConfigProperty(name = "message", defaultValue = "Hello")
     private String message;
 
     @GET
