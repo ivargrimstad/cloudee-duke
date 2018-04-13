@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cloudee-duke
+  labels:
+    app: cloudee-duke
+    visualize: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudee-duke
+  template:
+    metadata:
+      labels:
+        app: cloudee-duke
+        version: "v1"
+        vusualize: "true"
+    spec:
+      containers:
+      - name: dukes-liberty
+        image: ivargrimstad/cloudee-duke:liberty
+        ports:
+        - name: http
+          containerPort: 9080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudee-duke
+  labels:
+    app: cloudee-duke
+    visualize: "true"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: http
+  selector:
+    app: cloudee-duke
