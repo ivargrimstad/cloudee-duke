@@ -1,0 +1,6 @@
+applications:
+   - name: CloudEE Duke
+     random-route: true
+     path: ../../../target/cloudee-duke.war
+     memory: 512M
+     instances: 1
