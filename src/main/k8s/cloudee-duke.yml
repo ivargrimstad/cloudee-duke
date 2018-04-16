@@ -18,7 +18,7 @@ spec:
         vusualize: "true"
     spec:
       containers:
-      - name: dukes-liberty
+      - name: cloudee-duke
         image: ivargrimstad/cloudee-duke:liberty
         ports:
         - name: http
