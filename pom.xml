@@ -290,7 +290,7 @@
                                     <name>ivargrimstad/${project.artifactId}:payara</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
-                                        <from>payara/micro:174</from>
+                                        <from>payara/micro:5.181</from>
                                         <assembly>
                                             <basedir>/opt/payara/deployments</basedir>
                                             <descriptorRef>artifact</descriptorRef>
