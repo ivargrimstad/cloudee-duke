@@ -55,7 +55,7 @@
             <id>swarm</id>
             
             <properties>
-                <version.wildfly.swarm>2018.4.1</version.wildfly.swarm>
+                <version.wildfly.swarm>2018.5.0</version.wildfly.swarm>
                 <assembly.file.postfix>swarm</assembly.file.postfix>
             </properties>
             
