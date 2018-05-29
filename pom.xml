@@ -55,7 +55,7 @@
             <id>swarm</id>
             
             <properties>
-                <version.wildfly.swarm>2018.4.1</version.wildfly.swarm>
+                <version.wildfly.swarm>2018.5.0</version.wildfly.swarm>
                 <assembly.file.postfix>swarm</assembly.file.postfix>
             </properties>
             
@@ -302,86 +302,6 @@
                                             <arg>--deploymentDir</arg>  
                                             <arg>/opt/payara/deployments</arg>  
                                         </entryPoint>     
-                                    </build>
-                                </image>
-                            </images>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        
-        <profile>
-            <id>kumuluz</id>
-            
-            <properties>
-                <version.kumuluz>2.5.2</version.kumuluz>
-                <assembly.file.postfix>kumuluz</assembly.file.postfix>
-            </properties>
-            
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.kumuluz.ee</groupId>
-                        <artifactId>kumuluzee-bom</artifactId>
-                        <version>${version.kumuluz}</version>
-                        <type>pom</type>
-                        <scope>import</scope>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
-
-            <dependencies>
-
-                <dependency>
-                    <groupId>com.kumuluz.ee</groupId>
-                    <artifactId>kumuluzee-microProfile-1.2</artifactId>
-                </dependency>            
-            </dependencies>
-            
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.kumuluz.ee</groupId>
-                        <artifactId>kumuluzee-maven-plugin</artifactId>
-                        <version>${version.kumuluz}</version>
-                        <executions>
-                            <execution>
-                                <id>package</id>
-                                <goals>
-                                    <goal>repackage</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    
-                    <plugin>
-                        <groupId>io.fabric8</groupId>
-                        <artifactId>docker-maven-plugin</artifactId>
-                        <version>${version.docker-maven-plugin}</version>
-                        <configuration>
-                            <images>
-                                <image>
-                                    <alias>${project.artifactId}-kumuluz</alias>
-                                    <name>ivargrimstad/${project.artifactId}:kumuluz</name>
-                                    <build>
-                                        <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
-                                        <from>store/oracle/serverjre:8</from>
-                                        <assembly>
-                                            <basedir>/opt</basedir>
-                                            <inline>
-                                                <files>
-                                                    <file>
-                                                        <source>${basedir}/target/${project.build.finalName}.jar</source>
-                                                    </file>
-                                                </files>
-                                            </inline>                                   
-                                        </assembly>                                                                             
-                                        <entryPoint>
-                                            <arg>java</arg>
-                                            <arg>-jar</arg>
-                                            <arg>/opt/${project.build.finalName}.jar</arg>  
-                                        </entryPoint>
                                     </build>
                                 </image>
                             </images>
