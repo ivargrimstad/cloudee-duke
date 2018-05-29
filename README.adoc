@@ -23,12 +23,6 @@ The `payara` profile requires `1.0.1-SNAPSHOT` of the payara-micro maven plugin.
 mvn clean package assembly:single -Pliberty
 ```
 
-== Build Kumuluz EE for Oracle Application Container Cloud
-
-```
-mvn clean package assembly:single -Pkumuluz
-```
-
 == Build Wildfly Swarm Docker Image
 
 ```
