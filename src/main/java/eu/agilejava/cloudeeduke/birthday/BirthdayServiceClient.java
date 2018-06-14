@@ -19,10 +19,10 @@ public class BirthdayServiceClient {
     public Integer getDaysToBirthday(String date) {
 
         try {
-            return Integer.parseInt(RestClientBuilder.newBuilder()
+            return RestClientBuilder.newBuilder()
                     .baseUrl(new URL("https://birthdayduke-ivar.eucom-north-1.oraclecloud.com"))
                     .build(BirthdayService.class)
-                    .daysToBirthday(date));
+                    .daysToBirthday(date);
         } catch (MalformedURLException e) {
             return -999;
         }

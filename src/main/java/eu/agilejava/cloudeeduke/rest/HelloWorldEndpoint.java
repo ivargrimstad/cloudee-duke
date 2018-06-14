@@ -1,8 +1,10 @@
 package eu.agilejava.cloudeeduke.rest;
 
+import eu.agilejava.cloudeeduke.birthday.BirthdayService;
 import eu.agilejava.cloudeeduke.birthday.BirthdayServiceClient;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.metrics.annotation.Metered;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -21,7 +23,8 @@ public class HelloWorldEndpoint {
 
 
     @Inject
-    private BirthdayServiceClient birthdayServiceClient;
+    @RestClient
+    private BirthdayService birthdayService;
 
     @GET
     @Produces("text/plain")
@@ -29,6 +32,6 @@ public class HelloWorldEndpoint {
     public Response doGet() {
 
         return Response.ok(String.format("Duke says %s, it's %d days to my Birthday!", message,
-                birthdayServiceClient.getDaysToBirthday("2005-07-17"))).build();
+                birthdayService.daysToBirthday("1995-07-17"))).build();
     }
 }
