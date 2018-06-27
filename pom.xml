@@ -257,7 +257,7 @@
             <id>payara</id>
             
             <properties>
-                <version.payara.micro>5.181</version.payara.micro>
+                <version.payara.micro>5.182</version.payara.micro>
                 <assembly.file.postfix>payara</assembly.file.postfix>
             </properties>
             
