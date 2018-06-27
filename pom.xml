@@ -52,19 +52,20 @@
 
     <profiles>
         <profile>
-            <id>swarm</id>
+            <id>thorntail</id>
             
             <properties>
                 <version.wildfly.swarm>2018.5.0</version.wildfly.swarm>
-                <assembly.file.postfix>swarm</assembly.file.postfix>
+                <version.thorntail>2.0.0.Final</version.thorntail>
+                <assembly.file.postfix>thorntail</assembly.file.postfix>
             </properties>
             
             <dependencyManagement>
                 <dependencies>
                     <dependency>
-                        <groupId>org.wildfly.swarm</groupId>
-                        <artifactId>bom-all</artifactId>
-                        <version>${version.wildfly.swarm}</version>
+                        <groupId>io.thorntail</groupId>
+                        <artifactId>boms</artifactId>
+                        <version>${version.thorntail}</version>
                         <scope>import</scope>
                         <type>pom</type>
                     </dependency>
@@ -73,7 +74,7 @@
 
             <dependencies>
                 <dependency>
-                    <groupId>org.wildfly.swarm</groupId>
+                    <groupId>io.thorntail</groupId>
                     <artifactId>microprofile</artifactId>
                 </dependency>
             </dependencies>
@@ -81,9 +82,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.wildfly.swarm</groupId>
-                        <artifactId>wildfly-swarm-plugin</artifactId>
-                        <version>${version.wildfly.swarm}</version>
+                        <groupId>io.thorntail</groupId>
+                        <artifactId>thorntail-maven-plugin</artifactId>
+                        <version>${version.thorntail}</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -103,8 +104,8 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <alias>${project.artifactId}-swarm</alias>
-                                    <name>ivargrimstad/${project.artifactId}:swarm</name>
+                                    <alias>${project.artifactId}-thorntail</alias>
+                                    <name>ivargrimstad/${project.artifactId}:thorntail</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>jboss/base-jdk:8</from>
@@ -113,7 +114,7 @@
                                             <inline>
                                                 <files>
                                                     <file>
-                                                        <source>${project.build.directory}/${project.build.finalName}-hollow-swarm.jar</source>
+                                                        <source>${project.build.directory}/${project.build.finalName}-hollow-thorntail.jar</source>
                                                         <outputDirectory>/opt</outputDirectory>
                                                     </file>
                                                     <file>
