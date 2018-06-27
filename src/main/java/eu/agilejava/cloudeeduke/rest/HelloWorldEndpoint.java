@@ -1,7 +1,6 @@
 package eu.agilejava.cloudeeduke.rest;
 
 import eu.agilejava.cloudeeduke.birthday.BirthdayService;
-import eu.agilejava.cloudeeduke.birthday.BirthdayServiceClient;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.metrics.annotation.Metered;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
