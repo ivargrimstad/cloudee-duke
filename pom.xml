@@ -55,7 +55,6 @@
             <id>thorntail</id>
             
             <properties>
-                <version.wildfly.swarm>2018.5.0</version.wildfly.swarm>
                 <version.thorntail>2.0.0.Final</version.thorntail>
                 <assembly.file.postfix>thorntail</assembly.file.postfix>
             </properties>
