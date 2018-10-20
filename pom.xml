@@ -55,7 +55,7 @@
             <id>thorntail</id>
             
             <properties>
-                <version.thorntail>2.0.0.Final</version.thorntail>
+                <version.thorntail>2.2.0.Final</version.thorntail>
                 <assembly.file.postfix>thorntail</assembly.file.postfix>
             </properties>
             
@@ -63,7 +63,7 @@
                 <dependencies>
                     <dependency>
                         <groupId>io.thorntail</groupId>
-                        <artifactId>boms</artifactId>
+                        <artifactId>bom</artifactId>
                         <version>${version.thorntail}</version>
                         <scope>import</scope>
                         <type>pom</type>
@@ -195,10 +195,6 @@
                                 <version>RELEASE</version>
                                 <type>zip</type>
                             </assemblyArtifact>
-                            <!--<install>-->
-                                <!--<type>webProfile7</type>-->
-                                <!--<version>2018.+</version>-->
-                            <!--</install>-->
                             <configFile>${basedir}/src/main/liberty/config/server.xml</configFile>
                             <serverEnv>${basedir}/src/main/liberty/config/server.env</serverEnv>
                             <jvmOptionsFile>${basedir}/src/main/liberty/config/jvm.options</jvmOptionsFile>
@@ -263,7 +259,7 @@
             <id>payara</id>
             
             <properties>
-                <version.payara.micro>5.182</version.payara.micro>
+                <version.payara.micro>5.183</version.payara.micro>
                 <assembly.file.postfix>payara</assembly.file.postfix>
             </properties>
             
@@ -296,8 +292,8 @@
                                     <name>ivargrimstad/${project.artifactId}:payara</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
-                                        <from>payara/micro:5.181</from>
-                                        <assembly>
+                                        <from>payara/micro:5.183</from>
+                                        <assembly>ls -
                                             <basedir>/opt/payara/deployments</basedir>
                                             <descriptorRef>artifact</descriptorRef>
                                         </assembly>
