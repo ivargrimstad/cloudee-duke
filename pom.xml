@@ -14,7 +14,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.docker-maven-plugin>0.28.0</version.docker-maven-plugin>
-        <version.microprofile>1.4</version.microprofile>
+        <version.microprofile>2.0.1</version.microprofile>
     </properties>
 
     <build>
@@ -56,7 +56,7 @@
             <id>thorntail</id>
 
             <properties>
-                <version.thorntail>2.2.0.Final</version.thorntail>
+                <version.thorntail>2.3.0.Final</version.thorntail>
                 <assembly.file.postfix>thorntail</assembly.file.postfix>
             </properties>
 
@@ -392,10 +392,6 @@
 
         <profile>
             <id>tomee</id>
-
-            <properties>
-                <version.microprofile>1.3</version.microprofile>
-            </properties>
 
             <build>
                 <finalName>ROOT</finalName>
